@@ -1,5 +1,8 @@
-FROM openjdk:11
-COPY . /var/www/java
-WORKDIR /var/www/java
-RUN javac Hello.java
-CMD ["java","Hello"]
+# Use an official Nginx image as the base
+FROM nginx
+
+# Copy the HTML file into the Nginx document root
+COPY index.html /usr/share/nginx/html
+
+# Expose port 80 to the outside world
+EXPOSE 80
